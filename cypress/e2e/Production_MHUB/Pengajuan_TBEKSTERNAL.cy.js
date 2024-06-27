@@ -55,7 +55,13 @@ describe('example to-do app', () => {
         cy.xpath("(//input[@placeholder='Pilih Pajak STNK Berlaku s/d'])[1]").type('27-06-2024{enter}')
         cy.xpath("(//button[normalize-space()='Berikutnya'])[1]").click()
         cy.get(':nth-child(1) > .image').scrollIntoView()
-        cy.xpath("//div[@class='p-4']//div[1]//span[1]//button[1]//*[name()='svg']").click()
+        cy.fixture('uploadmotor.png').then(fileContent => {
+          // Use the fixture content in the test
+        
+        })
+        cy.xpath("//div[@class='p-4']//div[1]//span[1]//button[1]//*[name()='svg']").attachFile('/Users/macbook/Downloads/Project Mandala/cypress/fixtures/uploadmotor.png')
+        
+         
     })
 })
 
