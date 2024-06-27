@@ -1,0 +1,73 @@
+describe('example to-do app', () => {
+    beforeEach(() => {
+      cy.visit('mhub.mantis.co.id')
+          
+      cy.get(':nth-child(1) > .form-control').type('bbm.mantis@yopmail.com');
+      cy.get('#password').type('P3ju4ngM4nt1s24');
+      cy.get('.btn-block').click();
+    
+      cy.intercept('/some/api/endpoint').as('loginSuccess'); 
+    })
+  
+    it('Cetak STTB', () => {
+
+        cy.xpath("(//span[@class='hamburger-box'])[2]").click()
+        cy.xpath("(//span[normalize-space()='Activity Dashboard'])[1]").click()   
+        cy.get('.show > :nth-child(1) > :nth-child(6) > :nth-child(1) > .sidebar-item-label').click()
+        cy.get(':nth-child(6) > .show > :nth-child(1) > :nth-child(3) > a').click()
+        cy.wait(1000)
+        cy.get('.app-sidebar-overlay').click()
+        cy.wait(2000)
+        //cy.xpath("(//*[name()='svg'][@class='svg-inline--fa fa-filter fa-w-16 opacity-8 font-size-xs'])[1]").click()
+       // cy.xpath("(//input[@placeholder='No Booking'])[1]").type('550323120038')
+        //cy.xpath("(//button[normalize-space()='Terapkan'])[1]").click()
+        //cy.wait(5000)
+        //cy.xpath("(//span[normalize-space()='Proses'])[1]").click()
+        //cy.xpath("(//div[@class='my-3'])[4]").scrollIntoView()
+        //cy.xpath("(//span[normalize-space()='Cetak'])[1]").click()
+        //cy.wait(5000)
+        //cy.reload()
+        //cy.wait(10000)
+        cy.xpath("(//span[normalize-space()='Dalam Proses'])[1]").click()
+        cy.wait(1000)
+        cy.xpath("(//button[@class='d-flex align-items-center justify-content-center d-40 p-0 rounded-pill btn btn-outline-primary'])[1]").click()
+        cy.xpath("(//input[@placeholder='No Booking'])[1]").type('550324040013')
+        cy.xpath("(//button[normalize-space()='Terapkan'])[1]").click()
+        cy.wait(5000)
+        cy.xpath("(//span[normalize-space()='Proses'])[1]").click()
+        cy.xpath("(//div[@class=' css-1hwfws3'])[1]").scrollIntoView()
+        cy.xpath("(//div[@class=' css-1hwfws3'])[1]").type('Verifikasi{enter}')
+        cy.xpath("(//span[@class='text-sm px-2'])[1]").click()
+        cy.xpath("(//input[@placeholder='0'])[1]").type('30000000')
+        cy.xpath("(//button[normalize-space()='Berikutnya'])[1]").scrollIntoView()
+        cy.xpath("(//button[normalize-space()='Berikutnya'])[1]").click()
+        cy.xpath("(//div[contains(text(),'Pilih Speedometer')])[1]").type('ada (Original){enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Shock Breaker Depan')])[1]").type('ada (Original){enter}')
+        cy.xpath("(//div[contains(@class,'css-5yfhrh-placeholder')][contains(text(),'Pilih Disc Brake + Kaliper Cakram + Master Rem + B')])[1]").type('ada (Original){enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Velg Depan (CW/Racing)')])[1]").type('ada (Original){enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Velg Belakang (CW/Racing)')])[1]").scrollIntoView()
+        cy.xpath("(//div[contains(text(),'Pilih Cover Belakang (L/R) atau Cover Body')])[1]").type('ada (Original){enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Lampu Depan / Belakang')])[1]").type('ada (Original){enter}')
+        cy.get(':nth-child(8) > .text-options > .css-uoudvr-control > .css-1hwfws3 > .css-5yfhrh-placeholder').type('ada (Original{enter}')
+        cy.get(':nth-child(9) > .text-options > .css-uoudvr-control > .css-1wy0on6 > .css-tlfecz-indicatorContainer').type('ada (Original{enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Velg Belakang (CW/Racing)')])[1]").type('ada (Original{enter}')
+        cy.xpath("(//div[contains(text(),'Pilih CVT / V-Belt / Gir Box')])[1]").type('ada (Original{enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Kondisi Mesin')])[1]").scrollIntoView()
+        cy.xpath("(//div[contains(text(),'Pilih Electric Starter')])[1]").type('ada (Original{enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Kondisi Mesin')])[1]").type('Normal{enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Kunci Kontak / Kunci Remote')])[1]").scrollIntoView()
+        cy.xpath("(//div[contains(text(),'Pilih Kunci Kontak / Kunci Remote')])[1]").type('ada (Original{enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Carburator / Electronic Control Unit')])[1]").type('ada (Original{enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Block Mesin')])[1]").type('ada (Original{enter}')
+        cy.xpath("(//div[contains(text(),'Pilih Fisik STNK')])[1]") .type('ada{enter}')
+        cy.xpath("(//button[normalize-space()='Verifikasi'])[1]").scrollIntoView()
+        cy.xpath("(//div[contains(text(),'Pilih Plat Nomor Luar Kota')])[1]").type('Ya{enter}')
+        cy.xpath("(//input[@placeholder='Pilih Pajak STNK Berlaku s/d'])[1]").type('27-06-2024{enter}')
+        cy.xpath("(//button[normalize-space()='Verifikasi'])[1]").click()
+        cy.xpath("(//button[normalize-space()='Berikutnya'])[1]").click()
+        cy.xpath("(//button[normalize-space()='Simpan'])[1]").scrollIntoView()
+        cy.xpath("(//button[normalize-space()='Simpan'])[1]").click()
+
+      
+      })
+    })
